@@ -59,7 +59,7 @@ export const authService = {
       const payload = verifyRefreshToken(refreshToken);
       await userRepository.removeRefreshToken(payload.sub, hashToken(refreshToken));
     } catch {
-
+      // Ignore token verification/removal errors during logout
     }
   },
 
